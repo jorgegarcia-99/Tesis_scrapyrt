@@ -1,0 +1,6 @@
+scrapy
+autopep8
+scrapyrt
+scrapy-httpcache
+pandas
+scrapy-cookies
