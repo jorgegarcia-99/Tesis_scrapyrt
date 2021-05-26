@@ -124,7 +124,7 @@ class SpiderPost(scrapy.Spider):
     
         if '"all"' in dict_reaction.keys():
             dict_reaction['all'] = dict_reaction['"all"'].replace(
-                "Todas ", "")
+                "Todas (", "").replace(")", "")
             del(dict_reaction['"all"'])
         else:
             dict_reaction['all'] = dict_reaction[list(
