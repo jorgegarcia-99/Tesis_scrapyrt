@@ -62,5 +62,6 @@ jobs:
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_76efd3bd001e4721a81f4d512a1ef7c7 }}
 
       - name: 'Run Scrapyrt'
-        run:
-          ls
+        run: |
+          cd facebook_scraper
+          scrapyrt -i 0.0.0.0 -p 9080
