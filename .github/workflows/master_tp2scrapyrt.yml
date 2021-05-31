@@ -63,4 +63,5 @@ jobs:
 
       - name: 'Run Scrapyrt'
         run:
-          cd facebook_scraper/
+          ls
+          pwd
