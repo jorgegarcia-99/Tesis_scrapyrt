@@ -60,7 +60,3 @@ jobs:
           app-name: 'tp2scrapyrt'
           slot-name: 'production'
           publish-profile: ${{ secrets.AzureAppService_PublishProfile_76efd3bd001e4721a81f4d512a1ef7c7 }}
-
-      - name: 'Run Scrapyrt'
-        run: 
-          scrapyrt -i 0.0.0.0 -p 9080
