@@ -63,5 +63,5 @@ jobs:
 
       - name: 'Run Scrapyrt'
         run: |
-        cd facebook_scraper
-        scrapyrt -i 0.0.0.0 -p 9080
+          cd facebook_scraper/
+          scrapyrt -i 0.0.0.0 -p 9080
