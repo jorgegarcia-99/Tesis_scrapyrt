@@ -2,6 +2,7 @@ import scrapy
 import json
 import pandas as pd
 import os
+import re
 from datetime import datetime
 from ..items import CommentItem
 from urllib.parse import urljoin
@@ -110,6 +111,13 @@ class SpiderComment(scrapy.Spider):
 
             for word in person_tag:
                 text_comment = text_comment.replace(word, f'[{word}]')
+
+            texto_encontrado = re.findall(r"(([a-zA-ZÀ-ÿ\u00f1\u00d1\d-]+\[[a-zA-ZÀ-ÿ\u00f1\u00d1(\ )\d-]+\][a-zA-ZÀ-ÿ\u00f1\u00d1\d-]*)|(\[[a-zA-ZÀ-ÿ\u00f1\u00d1(\ )\d-]+\][a-zA-ZÀ-ÿ\u00f1\u00d1\d-]+))",text_comment)
+
+            texto_encontrado = [sentence[0] for sentence in texto_encontrado]
+
+            for sentence in texto_encontrado:
+                text_comment = text_comment.replace(sentence,sentence.replace("[","").replace("]",""))
 
             obj_comment['identifier'] = identifier
             obj_comment['text'] = text_comment
